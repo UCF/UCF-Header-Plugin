@@ -1,0 +1,9 @@
+.editorconfig
+.jsbeautifyrc
+.scss-lint.yml
+readme.txt
+
+node_modules/
+bower_components/
+.sass-cache/
+*.log
