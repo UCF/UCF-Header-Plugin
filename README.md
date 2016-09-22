@@ -24,9 +24,18 @@ https://github.com/UCF/UCF-Header
 
 ## WP Options ##
 
-TODO
+Options for UCF Header Plugin is listed under "Settings"
 
+### Responsiveness ###
+To utilize a responsive bar, simply make sure your site's <head> includes the following <meta> tag:
 
+`<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+
+### Bootstrap 2.x overrides ###
+Due to the way that some older versions of the Bootstrap CSS framework apply left- and right-hand padding to elements at screen sizes less than 768px wide, a style override is necessary for sites using these versions of Bootstrap if they utilize responsive styles.
+
+### For sites with a max-width greater than 1200px ###
+A "use-1200-breakpoint" parameter can be added to display a wider version of the header.
 
 ## Changelog ##
 
