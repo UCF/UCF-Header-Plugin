@@ -10,7 +10,7 @@ if ( ! class_exists( 'UCF_Header_Config' ) )
 		{
 			add_options_page(
 				'UCF Header',
-				'UCF Header Plugin Options',
+				'UCF Header',
 				'manage_options',
 				'UCF-Header-plugin',
 				array(
