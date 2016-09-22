@@ -20,7 +20,7 @@ add_action( 'plugins_loaded', function()
 	require_once 'includes/header_common.php';
 
 	add_action( 'admin_menu', array( 'UCF_Header_Config', 'add_options_page' ) );
-	add_action( 'wp_head', array( 'UCF_Header_Common', 'display_header') );
+	add_action( 'wp_footer', array( 'UCF_Header_Common', 'display_header') );
 
 } );
 
