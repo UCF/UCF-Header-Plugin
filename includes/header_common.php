@@ -11,27 +11,30 @@ if ( !class_exists( 'UCF_Header_Common' ) )
         {
             if (!is_admin())
             {
-                $headerscript = '<script type="text/javascript" id="ucfhb-script" src="//universityheader.ucf.edu/bar/js/university-header.js';
                 $id = "ucfhb-script";
-                $src = "//universityheader/ucf.edu/bar/js/university-header.js";
-                $bootstrap_2_overrides = get_option('bootstrap_2_overrides');
-                $use_1200_breakpoint = get_option('use_1200_breakpoint');
+                $src = "//universityheader.ucf.edu/bar/js/university-header.js";
+                $params = array (
+                    "bootstrap_2_overrides" => get_option('bootstrap_2_overrides'),
+                    "use_1200_breakpoint" => get_option('use_1200_breakpoint')
+                );
+                var_dump($params);
+                //There is at least one option checked.
+                if(count(array_filter($params)))
+                {
+                    $src .= '?';
+                    foreach($params as $option => $value)
+                    {
+                        if($value)
+                        {
+                            $src .=$option . "=" . $value . "&";
+                        }
+                    }
+                    unset($value);
+                    $src = substr($src, 0, -1);
+                }
 
-                if ( $bootstrap_2_overrides && !$use_1200_breakpoint )
-                {
-                    $headerscript .= '?use-bootstrap-overrides=1';
-                }
-                else if ( !$bootstrap_2_overrides && $use_1200_breakpoint)
-                {
-                    $headerscript .= '?use-1200-breakpoint=1';
-                }
-                else if ( $bootstrap_2_overrides && $use_1200_breakpoint)
-                {
-                    $headerscript .= '?use-1200-breakpoint=1&use-bootstrap-overrides=1';
-                }
-
-                $headerscript .= '"></script>';
-                echo $headerscript;
+                wp_register_script('ucf-header', $src, array(), null, true);
+                wp_enqueue_script('ucf-header',$src, array(), null, true);
             }
         }
     }
