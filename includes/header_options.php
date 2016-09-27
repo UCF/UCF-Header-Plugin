@@ -39,13 +39,13 @@ if ( ! class_exists( 'UCF_Header_Config' ) )
 				<table class="form-table">
 					<tr valign="top">
 						<th scope="row">Bootstrap 2.x overrides</th>
-						<td><input type="checkbox" name="bootstrap_2_overrides" <?php echo ( get_option( 'bootstrap_2_overrides' ) === 'on' ) ? 'checked' : ''; ?>>
+						<td><input type="checkbox" name="bootstrap_2_overrides" value="1" <?php checked( get_option( 'bootstrap_2_overrides' ), 1); ?>>
 						Bootstrap 2.x overrides
 						</input></td>
 					</tr>
 					<tr valign="top">
 						<th scope="row">Max-width greater than 1200px</th>
-						<td><input type="checkbox" name="use_1200_breakpoint" <?php echo ( get_option( 'use_1200_breakpoint' ) === 'on' ) ? 'checked' : ''; ?>>
+						<td><input type="checkbox" name="use_1200_breakpoint" value="1" <?php checked( get_option( 'use_1200_breakpoint' ), 1);  ?>>
 						Use-1200-breakpoint
 						</input></td>
 					</tr>
