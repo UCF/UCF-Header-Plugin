@@ -19,8 +19,8 @@ if ( !class_exists( 'UCF_Header_Common' ) ){
                 if(count(array_filter($params))){
                     $src .= '?'.http_build_query(array_filter($params));
                 }
-                wp_register_script('ucf-header', $src, array(), null, true);
-                wp_enqueue_script('ucf-header',$src, array(), null, true);
+                wp_register_script('ucf-header', $src, null, null, true);
+                wp_enqueue_script('ucf-header');
                 add_filter('clean_url', array('UCF_Header_Common', 'add_id_to_ucfhb'), 10, 3);
             }
         }
