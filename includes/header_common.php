@@ -3,33 +3,21 @@
  * Place common functions here.
  **/
 
-if ( !class_exists( 'UCF_Header_Common' ) )
-{
-    class UCF_Header_Common
-    {
-        public static function display_header()
-        {
-            if (!is_admin())
-            {
+if ( !class_exists( 'UCF_Header_Common' ) ){
+    class UCF_Header_Common{
+        /**
+        * Build the javascript query from options and enqueue the header script.
+        **/
+        public static function display_header(){
+            if (!is_admin()){
                 $src = "//universityheader.ucf.edu/bar/js/university-header.js";
                 $params = array
                 (
                     "bootstrap_2_overrides" => get_option('bootstrap_2_overrides'),
                     "use_1200_breakpoint" => get_option('use_1200_breakpoint')
                 );
-                //There is at least one option checked.
-                if(count(array_filter($params)))
-                {
-                    $src .= '?';
-                    foreach($params as $option => $value)
-                    {
-                        if($value)
-                        {
-                            $src .=$option . "=" . $value . "&";
-                        }
-                    }
-                    unset($value);
-                    $src = substr($src, 0, -1);
+                if(count(array_filter($params))){
+                    $src .= '?'.http_build_query(array_filter($params));
                 }
                 wp_register_script('ucf-header', $src, array(), null, true);
                 wp_enqueue_script('ucf-header',$src, array(), null, true);
