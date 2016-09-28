@@ -6,8 +6,7 @@ if ( ! class_exists( 'UCF_Header_Config' ) )
 {
 	class UCF_Header_Config
 	{
-		public static function add_options_page()
-		{
+		public static function add_options_page(){
 			add_options_page(
 				'UCF Header',
 				'UCF Header',
@@ -22,14 +21,12 @@ if ( ! class_exists( 'UCF_Header_Config' ) )
 			add_action( 'admin_init', array( 'UCF_Header_Config', 'register_options' ) );
 		}
 
-		public static function register_options()
-		{
+		public static function register_options(){
 			register_setting( 'ucf-header-group', 'bootstrap_2_overrides' );
 			register_setting( 'ucf-header-group', 'use_1200_breakpoint' );
 		}
 
-		public static function add_options_form()
-		{
+		public static function add_options_form(){
 			?>
 			<div class="wrap">
 			<h2>UCF Header Options</h2>
