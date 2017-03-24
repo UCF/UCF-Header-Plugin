@@ -8,7 +8,7 @@ This plugin allow admin to easily add UCF University header to all UCF pages for
 Details on usage of the header and options available here:
 http://universityheader.ucf.edu/
 
-Details for the UCF Header is availble here:
+Details for the UCF Header is available here:
 https://github.com/UCF/UCF-Header
 
 ## Installation ##
