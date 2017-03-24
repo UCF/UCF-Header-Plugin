@@ -12,8 +12,8 @@ if ( !class_exists( 'UCF_Header_Common' ) ){
 			if ( ! is_admin() ){
 				$src = '//universityheader.ucf.edu/bar/js/university-header.js';
 				$params = array(
-					'bootstrap_2_overrides' => get_option('bootstrap_2_overrides'),
-					'use_1200_breakpoint'   => get_option('use_1200_breakpoint')
+					'bootstrap-2-overrides' => get_option('bootstrap-2-overrides'),
+					'use-1200-breakpoint'   => get_option('use-1200-breakpoint')
 				);
 				if( count( array_filter($params) ) ){
 					$src .= '?'.http_build_query( array_filter($params) );
