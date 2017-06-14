@@ -22,8 +22,8 @@ if ( ! class_exists( 'UCF_Header_Config' ) )
 		}
 
 		public static function register_options(){
-			register_setting( 'ucf-header-group', 'bootstrap_2_overrides' );
-			register_setting( 'ucf-header-group', 'use_1200_breakpoint' );
+			register_setting( 'ucf-header-group', 'bootstrap-2-overrides' );
+			register_setting( 'ucf-header-group', 'use-1200-breakpoint' );
 		}
 
 		public static function add_options_form(){
@@ -36,13 +36,13 @@ if ( ! class_exists( 'UCF_Header_Config' ) )
 				<table class="form-table">
 					<tr valign="top">
 						<th scope="row">Bootstrap 2.x overrides</th>
-						<td><input type="checkbox" name="bootstrap_2_overrides" value="1" <?php checked( get_option( 'bootstrap_2_overrides' ), 1); ?>>
+						<td><input type="checkbox" name="bootstrap-2-overrides" value="1" <?php checked( get_option( 'bootstrap-2-overrides' ), 1); ?>>
 						Bootstrap 2.x overrides
 						</input></td>
 					</tr>
 					<tr valign="top">
 						<th scope="row">Max-width greater than 1200px</th>
-						<td><input type="checkbox" name="use_1200_breakpoint" value="1" <?php checked( get_option( 'use_1200_breakpoint' ), 1);  ?>>
+						<td><input type="checkbox" name="use-1200-breakpoint" value="1" <?php checked( get_option( 'use-1200-breakpoint' ), 1);  ?>>
 						Use-1200-breakpoint
 						</input></td>
 					</tr>
