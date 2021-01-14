@@ -54,4 +54,3 @@ if ( ! class_exists( 'UCF_Header_Config' ) )
 	}
 }
 ?>
-
