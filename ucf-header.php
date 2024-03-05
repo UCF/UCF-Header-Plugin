@@ -2,7 +2,7 @@
 /*
 Plugin Name: UCF Header
 Description: Adds the UCF header to all WP pages.
-Version: 1.0.0
+Version: 1.1.0
 Author: UCF Web Communications
 License: GPL3
 */
