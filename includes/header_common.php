@@ -11,15 +11,18 @@ if ( !class_exists( 'UCF_Header_Common' ) ){
 		public static function display_header(){
 			if ( ! is_admin() ){
 				$src = '//universityheader.ucf.edu/bar/js/university-header.js';
+				
 				$params = array(
-					'bootstrap_2_overrides' => get_option('bootstrap_2_overrides'),
-					'use_1200_breakpoint'   => get_option('use_1200_breakpoint')
+					'use-bootstrap-overrides' => get_option('bootstrap_2_overrides'),
+					'use-1200-breakpoint'   => get_option('use_1200_breakpoint')
 				);
-				if( count( array_filter($params) ) ){
+
+				if ( count( array_filter( $params ) ) ){
 					$src .= '?'.http_build_query( array_filter($params) );
 				}
-				wp_register_script('ucf-header', $src, null, null, true);
-				wp_enqueue_script('ucf-header');
+
+				wp_register_script( 'ucf-header', $src, null, null, true );
+				wp_enqueue_script( 'ucf-header' );
 			}
 		}
 
