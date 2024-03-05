@@ -1,0 +1,8 @@
+{
+    "name": "ucf/ucf-header-plugin",
+    "description": "Plugin to embed UCF University Header on top of Wordpress pages.",
+    "type": "wordpress-plugin",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}

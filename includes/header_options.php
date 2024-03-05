@@ -13,8 +13,8 @@ if ( ! class_exists( 'UCF_Header_Config' ) )
 				'manage_options',
 				'UCF-Header-plugin',
 				array(
-				'UCF_Header_Config',
-				'add_options_form'
+					'UCF_Header_Config',
+					'add_options_form'
 				)
 			);
 
@@ -53,5 +53,3 @@ if ( ! class_exists( 'UCF_Header_Config' ) )
 		}
 	}
 }
-?>
-
