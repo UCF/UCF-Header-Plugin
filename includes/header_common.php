@@ -52,5 +52,3 @@ if ( !class_exists( 'UCF_Header_Common' ) ){
 		add_filter( 'clean_url', array( 'UCF_Header_Common', 'add_id_to_ucfhb' ), 10, 1 );
 	}
 }
-
-?>
