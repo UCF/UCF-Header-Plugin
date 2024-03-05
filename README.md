@@ -34,6 +34,9 @@ A "use-1200-breakpoint" parameter can be added to display a wider version of the
 
 ## Changelog ##
 
+### 1.1.0 ###
+* Added logic to support WP 6.3+.
+
 ### 1.0 ###
 * Initial release
 
