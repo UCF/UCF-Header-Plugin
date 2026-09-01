@@ -26,6 +26,9 @@ https://github.com/UCF/UCF-Header
 
 Options for UCF Header is listed under "Settings".
 
+### UCF Header Base URL ###
+The URL of the University Header script loaded on the front end. Most sites can leave this as-is; change it to load the header from another location, such as a staging server or the full-width version of the header. When left empty, `https://universityheader.ucf.edu/bar/js/university-header.js` is used.
+
 ### Bootstrap 2.x overrides ###
 Due to the way that some older versions of the Bootstrap CSS framework apply left- and right-hand padding to elements at screen sizes less than 768px wide, a style override is necessary for sites using these versions of Bootstrap if they utilize responsive styles.
 
@@ -33,6 +36,9 @@ Due to the way that some older versions of the Bootstrap CSS framework apply lef
 A "use-1200-breakpoint" parameter can be added to display a wider version of the header.
 
 ## Changelog ##
+
+### 1.2.0 ###
+* Added a UCF Header Base URL option for setting the location of the header script.
 
 ### 1.1.0 ###
 * Added logic to support WP 6.3+.
