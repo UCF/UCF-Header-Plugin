@@ -10,11 +10,15 @@ if ( !class_exists( 'UCF_Header_Common' ) ){
 		**/
 		public static function display_header(){
 			if ( ! is_admin() ){
-				$src = '//universityheader.ucf.edu/bar/js/university-header.js';
+				$src = get_option('ucf_header_base_url');
+
+				if ( empty( $src ) ){
+					$src = 'https://universityheader.ucf.edu/bar/js/university-header.js';
+				}
 				
 				$params = array(
 					'use-bootstrap-overrides' => get_option('bootstrap_2_overrides'),
-					'use-1200-breakpoint'   => get_option('use_1200_breakpoint')
+					'use-1200-breakpoint'   => get_option('use_1200_breakpoint'),
 				);
 
 				if ( count( array_filter( $params ) ) ){

@@ -22,6 +22,7 @@ if ( ! class_exists( 'UCF_Header_Config' ) )
 		}
 
 		public static function register_options(){
+			register_setting( 'ucf-header-group', 'ucf_header_base_url' );
 			register_setting( 'ucf-header-group', 'bootstrap_2_overrides' );
 			register_setting( 'ucf-header-group', 'use_1200_breakpoint' );
 		}
@@ -34,6 +35,11 @@ if ( ! class_exists( 'UCF_Header_Config' ) )
 				<?php settings_fields('ucf-header-group'); ?>
 				<?php do_settings_sections('ucf-header-group'); ?>
 				<table class="form-table">
+					<tr valign="top">
+						<th scope="row">UCF Header Base URL</th>
+						<td><input type="text" name="ucf_header_base_url" value="<?php echo esc_attr( get_option( 'ucf_header_base_url', 'https://universityheader.ucf.edu/bar/js/university-header.js' ) ); ?>" />
+						</td>
+					</tr>
 					<tr valign="top">
 						<th scope="row">Bootstrap 2.x overrides</th>
 						<td><input type="checkbox" name="bootstrap_2_overrides" value="1" <?php checked( get_option( 'bootstrap_2_overrides' ), 1); ?>>
