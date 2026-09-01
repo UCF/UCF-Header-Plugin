@@ -6,23 +6,26 @@
 if ( !class_exists( 'UCF_Header_Common' ) ){
 	class UCF_Header_Common{
 		/**
+		* The canonical University Header script URL, used when no base URL is configured.
+		**/
+		const DEFAULT_SCRIPT_URL = 'https://universityheader.ucf.edu/bar/js/university-header.js';
+
+		/**
 		* Build the javascript query from options and enqueue the header script.
 		**/
 		public static function display_header(){
 			if ( ! is_admin() ){
-				$src = get_option('ucf_header_base_url');
-
-				if ( empty( $src ) ){
-					$src = 'https://universityheader.ucf.edu/bar/js/university-header.js';
-				}
+				$src = self::get_script_url();
 				
 				$params = array(
 					'use-bootstrap-overrides' => get_option('bootstrap_2_overrides'),
 					'use-1200-breakpoint'   => get_option('use_1200_breakpoint'),
 				);
 
-				if ( count( array_filter( $params ) ) ){
-					$src .= '?'.http_build_query( array_filter($params) );
+				$params = array_filter( $params );
+
+				if ( ! empty( $params ) ){
+					$src = add_query_arg( $params, $src );
 				}
 
 				wp_register_script( 'ucf-header', $src, null, null, true );
@@ -30,8 +33,22 @@ if ( !class_exists( 'UCF_Header_Common' ) ){
 			}
 		}
 
+		/**
+		* Returns the configured University Header script URL. Falls back to the
+		* canonical URL when the option is empty or is not a valid http(s) URL.
+		**/
+		public static function get_script_url(){
+			$src = esc_url_raw( trim( (string) get_option( 'ucf_header_base_url' ) ), array( 'http', 'https' ) );
+
+			if ( empty( $src ) ){
+				$src = self::DEFAULT_SCRIPT_URL;
+			}
+
+			return $src;
+		}
+
 		public static function ucfhb_script_handle( $tag, $handle, $src ) {
-			if ( false !== strpos( $src, 'universityheader.ucf.edu' ) ) {
+			if ( 'ucf-header' === $handle ) {
 				$tag = str_replace( "{$handle}-js", 'ucfhb-script', $tag );
 			}
 		
@@ -42,7 +59,10 @@ if ( !class_exists( 'UCF_Header_Common' ) ){
 		* Add ID attribute to registered University Header script.
 		**/
 		public static function add_id_to_ucfhb( $url ) {
-			if ( ( false !== strpos($url, 'bar/js/university-header.js' ) ) ||
+			$base = self::get_script_url();
+
+			if ( ( 0 === strpos( $url, $base ) ) ||
+				( false !== strpos($url, 'bar/js/university-header.js' ) ) ||
 				(false !== strpos($url, 'bar/js/university-header-full.js') ) ) {
 				remove_filter('clean_url', 'add_id_to_ucfhb', 10, 3);
 				return "$url' id='ucfhb-script";
